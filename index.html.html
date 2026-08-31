@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Thuốc Đông Y Phúc Hạnh Đường</title>
+    <!-- Google Fonts hỗ trợ tiếng Việt chuẩn không lỗi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep-green: #061a12;
+            --bg-emerald: #0e3024;
+            --gold-primary: #f0cb67;
+            --gold-light: #fef0ba;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #fff3a8 30%, #aa771c 70%, #fbf5b7 100%);
+            --text-light: #f8f6f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Philosopher', serif;
+            background-color: var(--bg-deep-green);
+            color: var(--text-light);
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Lớp phông nền cây thuốc thảo dược chìm nghệ thuật */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Thay hình ảnh cây thuốc của bạn làm nền */
+            background-image: url('input_file_0.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.18; /* Độ mờ vừa phải làm điểm nhấn chìm */
+            z-index: -2;
+            filter: saturate(1.2) contrast(1.1);
+        }
+
+        /* Lớp phủ màu xanh lục bảo đè lên hình ảnh để tạo chiều sâu */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(14, 48, 36, 0.82) 0%, rgba(6, 26, 18, 0.95) 100%);
+            z-index: -1;
+        }
+
+        /* Header Hoàng Gia Cổ Điển */
+        header {
+            text-align: center;
+            padding: 65px 20px 45px;
+            position: relative;
+        }
+
+        .royal-frame {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px 25px;
+            border: 2px solid transparent;
+            border-image: var(--gold-gradient) 1;
+            background: rgba(6, 26, 18, 0.85);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 25px rgba(240, 203, 103, 0.15);
+            position: relative;
+        }
+
+        .royal-frame::before {
+            content: "❖ ❖ ❖";
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-deep-green);
+            padding: 0 18px;
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+        }
+
+        /* Tên nhà thuốc PHÚC HẠNH ĐƯỜNG - Chữ hoa chuẩn tiếng Việt không lỗi font */
+        .brand-name {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 3px 5px 12px rgba(0, 0, 0, 0.9);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .brand-sub {
+            font-size: 1.35rem;
+            color: var(--gold-light);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(240, 203, 103, 0.35);
+            display: inline-block;
+            padding-top: 10px;
+            margin-top: 12px;
+        }
+
+        /* Container Nội Dung */
+        .container {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 880px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            background: rgba(14, 48, 36, 0.7);
+            backdrop-filter: blur(3px);
+            padding: 25px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(240, 203, 103, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: var(--gold-primary);
+            margin-bottom: 40px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: "❖";
+            display: block;
+            font-size: 1.1rem;
+            margin-top: 6px;
+            color: var(--gold-light);
+        }
+
+        /* Danh Sách Thẻ Bệnh */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, rgba(14, 48, 36, 0.85) 0%, rgba(6, 26, 18, 0.95) 100%);
+            border: 1px solid rgba(240, 203, 103, 0.35);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+            transition: all 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 15px 35px rgba(240, 203, 103, 0.25);
+        }
+
+        .img-container {
+            height: 230px;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid rgba(240, 203, 103, 0.3);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .img-container img {
+            transform: scale(1.08);
+        }
+
+        .card-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.55rem;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            color: #e0dad0;
+        }
+
+        /* Khung Liên Hệ */
+        .contact-box {
+            margin-top: 70px;
+            background: linear-gradient(135deg, rgba(14, 48, 36, 0.9) 0%, rgba(6, 26, 18, 0.98) 100%);
+            border: 2px solid transparent;
+            border-image: var(--gold-gradient) 1;
+            padding: 45px 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+        }
+
+        .contact-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .contact-sub {
+            font-size: 1.15rem;
+            color: #e2ded7;
+            margin-bottom: 20px;
+        }
+
+        .phone-number {
+            font-size: 2.4rem;
+            font-weight: bold;
+            color: var(--gold-light);
+            display: block;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px rgba(254, 240, 186, 0.4);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 35px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-call {
+            background: var(--gold-gradient);
+            color: #061a12;
+        }
+
+        .btn-call:hover {
+            box-shadow: 0 0 20px rgba(254, 240, 186, 0.6);
+            transform: scale(1.04);
+        }
+
+        .btn-zalo {
+            background-color: #0068ff;
+            color: #ffffff;
+        }
+
+        .btn-zalo:hover {
+            background-color: #0056d6;
+            box-shadow: 0 0 20px rgba(0, 104, 255, 0.6);
+            transform: scale(1.04);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #90a59b;
+            border-top: 1px solid rgba(240, 203, 103, 0.2);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .brand-name { font-size: 2.4rem; }
+            .phone-number { font-size: 1.8rem; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Trang Web -->
+    <header>
+        <div class="royal-frame">
+            <h1 class="brand-name">Phúc Hạnh Đường</h1>
+            <div class="brand-sub">Nhà Thuốc Đông Y Gia Truyền</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Giới thiệu -->
+        <div class="intro-text">
+            <p>Nhà thuốc Đông y <strong>Phúc Hạnh Đường</strong> chuyên điều trị triệt để các bệnh cảm thương hàn lâu năm, bệnh tim mạch và các bệnh về xương khớp bằng các bài thuốc cổ truyền an toàn, hiệu quả bền lâu.</p>
+        </div>
+
+        <!-- Chuyên khoa -->
+        <h2 class="section-title">Các Bệnh Điều Trị Chuyên Khoa</h2>
+
+        <div class="services-grid">
+            <!-- Bệnh 1 -->
+            <div class="service-card">
+                <div class="img-container">
+                    <img src="https://d2jx2rerrg6sh3.cloudfront.net/image-handler/picture/2021/8/shutterstock_1542887327.jpg" alt="Bệnh cảm thương hàn lâu năm">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Cảm Thương Hàn Lâu Năm</h3>
+                    <p class="card-desc">Chữa trị dứt điểm chứng cảm thương hàn lâu năm, hàn khí thâm nhập sâu làm cơ thể mệt mỏi, ớn lạnh, tái phát nhiều lần.</p>
+                </div>
+            </div>
+
+            <!-- Bệnh 2 -->
+            <div class="service-card">
+                <div class="img-container">
+                    <img src="https://taimuihongsg.com/wp-content/uploads/2013/05/benh-tim-mach_taimuihongsg.jpg" alt="Bệnh tim">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Bệnh Tim Mạch</h3>
+                    <p class="card-desc">Bài thuốc trợ tim, bổ tâm khí, hỗ trợ điều hòa nhịp tim, giảm đau tức ngực, hồi hộp và suy nhược cơ thể.</p>
+                </div>
+            </div>
+
+            <!-- Bệnh 3 -->
+            <div class="service-card">
+                <div class="img-container">
+                    <img src="https://phuongdongasahi.vn/public/uploads/anh-bai-tin-tuc/cam-nang/cam-nang-suc-khoe-nguoi-cao-tuoi/dung/cac-benh-ve-xuong-khop-thuong-gap-4.jpg" alt="Bệnh xương khớp">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Bệnh Xương Khớp</h3>
+                    <p class="card-desc">Đặc trị các bệnh đau nhức xương khớp, thoái hóa cột sống, viêm khớp, tê bì tay chân, giúp thông kinh hoạt lạc.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Khung Liên Hệ -->
+        <div class="contact-box">
+            <h2 class="contact-heading">Tư Vấn & Đặt Lịch Khám</h2>
+            <p class="contact-sub">Liên hệ ngay với <strong>Nhà Thuốc Phúc Hạnh Đường</strong> để nhận phác đồ điều trị tận gốc</p>
+            
+            <span class="phone-number">📞 0968 295 677</span>
+
+            <div class="btn-group">
+                <a href="tel:0968295677" class="btn btn-call">
+                    Gọi Điện Ngay
+                </a>
+                <a href="https://zalo.me/0968295677" target="_blank" class="btn btn-zalo">
+                    Chat Zalo Trực Tiếp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Nhà Thuốc Đông Y Phúc Hạnh Đường | Hotline & Zalo: 0968295677</p>
+    </footer>
+
+</body>
+</html>
